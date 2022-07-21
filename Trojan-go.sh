@@ -836,6 +836,7 @@ start() {
     res=`ss -ntlp| grep ${port} | grep trojan-go`
     if [[ "$res" = "" ]]; then
         colorEcho $RED " trojan-go启动失败，请检查端口是否被占用！"
+	colorEcho $RED "ss -ntlp，未搜索到 启用的端口或trojan-go 进程"
     else
         colorEcho $BLUE " trojan-go启动成功"
     fi
