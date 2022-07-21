@@ -1,5 +1,3 @@
-##Trojan 脚本：
-
 #!/bin/bash
 # trojan-go一键安装脚本
 # Author: hijk<https://hijk.art>
@@ -835,8 +833,7 @@ start() {
     port=`grep local_port $CONFIG_FILE|cut -d: -f2| tr -d \",' '`
     res=`ss -ntlp| grep ${port} | grep trojan-go`
     if [[ "$res" = "" ]]; then
-        colorEcho $RED " trojan-go启动失败，请检查端口是否被占用！"
-	colorEcho $RED "ss -ntlp，未搜索到 启用的端口或trojan-go 进程"
+        colorEcho $RED " trojan-go启动失败，请检查端口是否被占用！ss -ntlp 未grep到 对应端口 或 trojan-go"
     else
         colorEcho $BLUE " trojan-go启动成功"
     fi
@@ -1013,3 +1010,4 @@ case "$action" in
         echo " 用法: `basename $0` [menu|update|uninstall|start|restart|stop|showInfo|showLog]"
         ;;
 esac
+
